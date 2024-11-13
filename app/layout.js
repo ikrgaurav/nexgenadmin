@@ -15,7 +15,7 @@ const geistMono = localFont({
 export const metadata = {
   title: "NexGen Ortho",
   icons: {
-    icon: "/icon.png",
+    icon: "/favicon.png",
   },
 };
 
