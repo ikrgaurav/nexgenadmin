@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { auth, provider, signInWithPopup } from "../firebase/config";
-
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ export default function LoginPage() {
   // List of allowed email addresses
   const allowedEmails = [
     "sonakshi.bajpai15@gmail.com",
-    "allowedemail2@example.com",
+    "gauwuv@gmail.com",
   ];
 
   const handleGoogleLogin = async () => {
@@ -23,10 +23,8 @@ export default function LoginPage() {
       // Check if the user's email is in the allowed list
       if (allowedEmails.includes(user.email)) {
         console.log("Authorized user:", user.email);
-        // Redirect to the dashboard or home page
         router.push("/dashboard");
       } else {
-        // Sign out the user if they are not allowed
         alert("Unauthorized access. Contact support for assistance.");
         auth.signOut();
       }
@@ -43,7 +41,15 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-4 bg-white rounded shadow-lg">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded shadow-lg">
+        <div className="flex justify-center mb-4">
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={200}
+            height={200}
+          />
+        </div>
         <h2 className="text-2xl font-bold text-center text-gray-700">Login</h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
